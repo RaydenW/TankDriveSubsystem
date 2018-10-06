@@ -12,5 +12,6 @@ int NetworkTablesInterface::getInt(){
 }
 
 bool NetworkTablesInterface::getBool(){
-	return nt::NetworkTableInstance::GetDefault().GetEntry("Entry Key").GetDouble(-1);
+	return nt::NetworkTableInstance::GetDefault().GetEntry("Entry Key").GetBoolean(false);
 }
+

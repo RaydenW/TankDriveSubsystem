@@ -15,8 +15,6 @@
 class TankDrive : public frc::Command {
 private:
 	DriveTrain* dt;
-	double sleft;
-	double sright;
 public:
 	TankDrive();
 	void Initialize() override;

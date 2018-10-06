@@ -11,9 +11,14 @@
 #include <SmartDashboard/SmartDashboard.h>
 
 ExampleSubsystem Robot::m_subsystem;
-OI Robot::m_oi;
+DriveTrain* Robot::m_drive;
+OI* Robot::m_oi;
 
 void Robot::RobotInit() {
+
+	Robot::m_drive = new DriveTrain();
+	Robot::m_oi = new OI();
+
 	m_chooser.AddDefault("Default Auto", &m_defaultAuto);
 	m_chooser.AddObject("My Auto", &m_myAuto);
 	frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
