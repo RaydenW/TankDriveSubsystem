@@ -9,6 +9,15 @@
 
 #include <WPILib.h>
 
-OI::OI() {
+OI::OI()
+: driveStickRight(new Joystick(1)), driveStickLeft(new Joystick(2)){
 	// Process operator interface input here.
+}
+
+Joystick* OI::getDriveStickLeft(){
+	return driveStickLeft;
+}
+
+Joystick* OI::getDriveStickRight(){
+	return driveStickRight;
 }

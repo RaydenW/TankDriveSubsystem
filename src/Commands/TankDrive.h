@@ -7,19 +7,22 @@
 
 #pragma once
 
-#include <Commands/Subsystem.h>
-#include "ctre/Phoenix.h"
+#include <Commands/Command.h>
+#include <Subsystems/DriveTrain.h>
 
-class TankDrive : public frc::Subsystem {
+#include "../robot.h"
+
+class TankDrive : public frc::Command {
 private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
-	TalonSRX* left;
-	TalonSRX* right;
-
+	DriveTrain* dt;
+	double sleft;
+	double sright;
 public:
 	TankDrive();
-	void tankDrive(double leftSpeed, double rightSpeed);
-	void InitDefaultCommand() override;
+	void Initialize() override;
+	void Execute();
+	bool IsFinished() override;
+	void End() override;
+	void Interrupted() override;
 };
 

@@ -7,17 +7,19 @@
 
 #pragma once
 
-#include "ctre/phoenix.h"
-#include "Joystick.h"
+#include <Commands/Subsystem.h>
+#include "ctre/Phoenix.h"
 
-class OI {
+class DriveTrain : public frc::Subsystem {
 private:
-    Joystick* driveStickLeft;
-    Joystick* driveStickRight;
+	// It's desirable that everything possible under private except
+	// for methods that implement subsystem capabilities
+	TalonSRX* left;
+	TalonSRX* right;
 
 public:
-	OI();
-    Joystick* getDriveStickLeft();
-    Joystick* getDriveStickRight();
-
+	DriveTrain();
+	void tankDrive(double leftSpeed, double rightSpeed);
+	void InitDefaultCommand();
 };
+

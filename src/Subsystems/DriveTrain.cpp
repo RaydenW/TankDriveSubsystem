@@ -5,19 +5,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "TankDrive.h"
+#include <Subsystems/DriveTrain.h>
 #include "../RobotMap.h"
+#include "../Commands/TankDrive.h"
 
-TankDrive::TankDrive()
+DriveTrain::DriveTrain()
 : Subsystem("TankDrive"), left(new TalonSRX(LEFT_MOTOR_PORT)), right(new TalonSRX(RIGHT_MOTOR_PORT)) {
 
 }
 
-void TankDrive::InitDefaultCommand() {
-	// Set the default command for a subsystem here.
+void DriveTrain::InitDefaultCommand() {
+	SetDefaultCommand(new TankDrive());
 }
 
-void TankDrive::tankDrive(double leftSpeed, double rightSpeed){
+void DriveTrain::tankDrive(double leftSpeed, double rightSpeed){
 	left->Set(ControlMode::PercentOutput, leftSpeed);
 	right->Set(ControlMode::PercentOutput, rightSpeed);
 }
