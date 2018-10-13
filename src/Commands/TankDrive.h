@@ -13,8 +13,6 @@
 #include "../robot.h"
 
 class TankDrive : public frc::Command {
-private:
-	DriveTrain* dt;
 public:
 	TankDrive();
 	void Initialize() override;

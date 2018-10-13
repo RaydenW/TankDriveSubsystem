@@ -10,11 +10,10 @@
 
 #include "../robot.h"
 
-TankDrive::TankDrive()
-: dt(new DriveTrain()){
+TankDrive::TankDrive() {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
-
+	Requires(Robot::m_drive);
 }
 
 // Called just before this Command runs the first time
@@ -24,7 +23,7 @@ void TankDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TankDrive::Execute() {
-	dt->tankDrive(Robot::m_oi->getDriveStickLeft()->GetY(), Robot::m_oi->getDriveStickRight()->GetY()*-1);
+	Robot::m_drive->tankDrive(Robot::m_oi->getDriveStickLeft()->GetY(), Robot::m_oi->getDriveStickRight()->GetY()*-1);
 }
 
 // Make this return true when this Command no longer needs to run execute()
