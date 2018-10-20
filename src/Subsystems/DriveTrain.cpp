@@ -23,5 +23,12 @@ void DriveTrain::tankDrive(double leftSpeed, double rightSpeed){
 	right->Set(ControlMode::PercentOutput, rightSpeed);
 }
 
+void DriveTrain::leftDrive(double speed){
+	left->Set(ControlMode::PercentOutput, speed);
+}
+
+void DriveTrain::rightDrive(double speed){
+	right->Set(ControlMode::PercentOutput, speed);
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

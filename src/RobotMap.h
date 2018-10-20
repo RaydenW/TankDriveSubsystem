@@ -14,8 +14,9 @@
  * floating around.
  */
 
-constexpr int RIGHT_MOTOR_PORT = 1;
+constexpr int RIGHT_MOTOR_PORT = 3;
 constexpr int LEFT_MOTOR_PORT = 2;
+constexpr int LIFT_MOTOR_PORT = 4;
 
 // For example to map the left and right motors, you could define the
 // following variables to use with your drivetrain subsystem.

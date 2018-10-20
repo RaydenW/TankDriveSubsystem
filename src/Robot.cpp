@@ -12,12 +12,15 @@
 
 ExampleSubsystem Robot::m_subsystem;
 DriveTrain* Robot::m_drive;
+Lift* Robot::m_lift;
 OI* Robot::m_oi;
 
 void Robot::RobotInit() {
 
 	Robot::m_drive = new DriveTrain();
+	Robot::m_lift = new Lift();
 	Robot::m_oi = new OI();
+
 
 	m_chooser.AddDefault("Default Auto", &m_defaultAuto);
 	m_chooser.AddObject("My Auto", &m_myAuto);

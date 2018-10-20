@@ -8,16 +8,23 @@
 #pragma once
 
 #include "ctre/phoenix.h"
+
+#include <WPILib.h>
+
 #include "Joystick.h"
+//#include "Button.h"
 
 class OI {
 private:
     Joystick* driveStickLeft;
     Joystick* driveStickRight;
+    Joystick* liftStick;
+    Button* groupDriveButton;
 
 public:
 	OI();
     Joystick* getDriveStickLeft();
     Joystick* getDriveStickRight();
+    Joystick* getLiftStick();
 
 };

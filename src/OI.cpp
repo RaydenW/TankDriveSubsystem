@@ -8,10 +8,16 @@
 #include "OI.h"
 
 #include <WPILib.h>
+#include <Commands/GroupedDriving.h>
+#include <Commands/TankDrive.h>
 
 OI::OI()
-: driveStickRight(new Joystick(1)), driveStickLeft(new Joystick(2)){
+: driveStickRight(new Joystick(1)), driveStickLeft(new Joystick(2)), liftStick(new Joystick(3)), groupDriveButton(new JoystickButton(driveStickLeft, 2)){
 	// Process operator interface input here.
+
+	groupDriveButton->WhenPressed(new GroupedDriving());
+	groupDriveButton->WhenReleased(new TankDrive());
+
 }
 
 Joystick* OI::getDriveStickLeft(){
@@ -20,4 +26,8 @@ Joystick* OI::getDriveStickLeft(){
 
 Joystick* OI::getDriveStickRight(){
 	return driveStickRight;
+}
+
+Joystick* OI::getLiftStick(){
+	return liftStick;
 }

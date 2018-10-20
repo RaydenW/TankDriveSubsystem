@@ -10,18 +10,15 @@
 #include <Commands/Subsystem.h>
 #include "ctre/Phoenix.h"
 
-class DriveTrain : public frc::Subsystem {
+class Lift : public frc::Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	TalonSRX* left;
-	TalonSRX* right;
+	TalonSRX* liftMotor;
 
 public:
-	DriveTrain();
-	void tankDrive(double leftSpeed, double rightSpeed);
-	void rightDrive(double speed);
-	void leftDrive(double speed);
+	Lift();
+	void liftMovement(double speed);
 	void InitDefaultCommand();
 };
 

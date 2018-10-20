@@ -7,21 +7,10 @@
 
 #pragma once
 
-#include <Commands/Subsystem.h>
-#include "ctre/Phoenix.h"
+#include <Commands/CommandGroup.h>
 
-class DriveTrain : public frc::Subsystem {
-private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
-	TalonSRX* left;
-	TalonSRX* right;
-
+class GroupedDriving : public frc::CommandGroup {
 public:
-	DriveTrain();
-	void tankDrive(double leftSpeed, double rightSpeed);
-	void rightDrive(double speed);
-	void leftDrive(double speed);
-	void InitDefaultCommand();
+	GroupedDriving();
 };
 
