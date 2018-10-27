@@ -7,20 +7,15 @@
 
 #pragma once
 
-#include <Commands/Subsystem.h>
-#include "ctre/Phoenix.h"
+#include <Commands/Command.h>
 
-class Lift : public frc::Subsystem {
-private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
-	TalonSRX* liftMotor;
-
+class LiftReset : public frc::Command {
 public:
-	Lift();
-	void liftMovement(double speed);
-	double getPosition();
-	TalonSRX* getLiftMotor();
-	void InitDefaultCommand();
+	LiftReset();
+	void Initialize() override;
+	void Execute() override;
+	bool IsFinished() override;
+	void End() override;
+	void Interrupted() override;
 };
 

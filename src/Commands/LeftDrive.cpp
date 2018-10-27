@@ -21,7 +21,7 @@ void LeftDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void LeftDrive::Execute() {
-	Robot::m_drive->leftDrive(0.5);
+	Robot::m_drive->leftDrive(0.2);
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -13,11 +13,19 @@
 
 Lift::Lift()
 : Subsystem("ExampleSubsystem"), liftMotor(new TalonSRX(LIFT_MOTOR_PORT)) {
-
+	liftMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Absolute, 0, 10);
 }
 
 void Lift::liftMovement(double speed){
 	liftMotor->Set(ControlMode::PercentOutput, speed);
+}
+
+double Lift::getPosition(){
+	return liftMotor->GetSelectedSensorPosition();
+}
+
+TalonSRX* Lift::getLiftMotor(){
+	return liftMotor;
 }
 
 void Lift::InitDefaultCommand() {
