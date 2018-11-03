@@ -11,6 +11,7 @@
 
 class LiftReset : public frc::Command {
 public:
+
 	LiftReset();
 	void Initialize() override;
 	void Execute() override;

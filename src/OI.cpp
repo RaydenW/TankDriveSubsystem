@@ -11,15 +11,17 @@
 #include <Commands/GroupedDriving.h>
 #include <Commands/TankDrive.h>
 #include <Commands/LiftReset.h>
+#include <Commands/LiftMoveTO.h>
 
 OI::OI()
-: driveStickRight(new Joystick(1)), driveStickLeft(new Joystick(2)), liftStick(new Joystick(3)), groupDriveButton(new JoystickButton(driveStickLeft, 2)),  liftResetButton(new JoystickButton(liftStick, 2)){
+: driveStickRight(new Joystick(1)), driveStickLeft(new Joystick(2)), liftStick(new Joystick(3)), groupDriveButton(new JoystickButton(driveStickLeft, 2)),  liftResetButton(new JoystickButton(liftStick, 2)), liftMoveToButton(new JoystickButton(liftStick, 4)){
 	// Process operator interface input here.
 
 	groupDriveButton->WhenPressed(new GroupedDriving());
-	groupDriveButton->WhenReleased(new TankDrive());
 
 	liftResetButton->WhenPressed(new LiftReset());
+
+	liftMoveToButton->WhenPressed(new LiftMoveTo());
 
 
 }

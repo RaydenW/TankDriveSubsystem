@@ -7,26 +7,17 @@
 
 #pragma once
 
-#include "ctre/phoenix.h"
+#include <Utilities/WVPIDController.h>
+#include <Commands/Command.h>
 
-#include <WPILib.h>
-
-#include "Joystick.h"
-//#include "Button.h"
-
-class OI {
-private:
-    Joystick* driveStickLeft;
-    Joystick* driveStickRight;
-    Joystick* liftStick;
-    Button* groupDriveButton;
-    Button* liftResetButton;
-    Button* liftMoveToButton;
-
+class LiftMoveTo : public frc::Command {
 public:
-	OI();
-    Joystick* getDriveStickLeft();
-    Joystick* getDriveStickRight();
-    Joystick* getLiftStick();
-
+	WVPIDController* distancePID;
+	LiftMoveTo();
+	void Initialize() override;
+	void Execute() override;
+	bool IsFinished() override;
+	void End() override;
+	void Interrupted() override;
 };
+
